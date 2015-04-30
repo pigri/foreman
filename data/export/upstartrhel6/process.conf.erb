@@ -1,14 +1,8 @@
-start on starting <%= app %>-<%= name %>
-stop on stopping <%= app %>-<%= name %>
+start on runlevel [2345]
 respawn
 
-env PORT=<%= port %>
 <% engine.env.each do |name,value| -%>
 env <%= name.upcase %>='<%= value.gsub(/'/, "'\"'\"'") %>'
 <% end -%>
 
-setuid <%= user %>
-
-chdir <%= engine.root %>
-
-exec 123456789 <%= process.command %>
+exec su - <%= user %> -c 'cd <%= engine.root %>; ; export PORT=<%= port %>; <%= process.command %>' 
