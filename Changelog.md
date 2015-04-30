@@ -1,3 +1,7 @@
+## 0.78.1 (2015-04-30)
+
+* Upstart RHEL6 support [ David Papp ]
+
 ## 0.78.0 (2015-03-13)
 
 * remove dotenv as it's not worth the dependency hell  [David Dollar]
